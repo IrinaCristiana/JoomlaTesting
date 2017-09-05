@@ -13,7 +13,7 @@ public class HomePage {
     @FindBy(xpath = ".//input[@id='modlgn-passwd']")
     private WebElement passwordField;
 
-    @FindBy(xpath = ".//div[@id='form-login-submit']/div[@class='controls']/button[@name='Submit']")
+    @FindBy(xpath = ".//div[@class='controls']/button[@name='Submit']")
     private WebElement logInButton;
 
     private WebDriver webDriver;
@@ -24,12 +24,11 @@ public class HomePage {
     //Insert the credentials and log in
     public AdminHomePage goToAdminHomePage(String username, String password){
         usernameField.clear();
-        usernameField.sendKeys("icristea");
+        usernameField.sendKeys(username);
         passwordField.clear();
-        passwordField.sendKeys("Password1");
+        passwordField.sendKeys(password);
         logInButton.click();
 
-        AdminHomePage adminHomePage = PageFactory.initElements(webDriver, AdminHomePage.class);
-        return adminHomePage;
+        return PageFactory.initElements(webDriver, AdminHomePage.class);
     }
 }

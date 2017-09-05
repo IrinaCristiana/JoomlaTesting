@@ -20,7 +20,7 @@ public class AdminSubmitArticlePage {
     @FindBy(xpath = ".//div[@id='mceu_93']/iframe[@id='jform_articletext_ifr']")
     private WebElement articleContent;
 
-    @FindBy(xpath = ".//form[@id='adminForm']/div/div[@class='btn-group']/button[@class='btn btn-primary']")
+    @FindBy(xpath = ".//div[@class='btn-group']/button[@class='btn btn-primary']")
     private WebElement saveButton;
 
     private WebDriver webDriver;
@@ -32,8 +32,7 @@ public class AdminSubmitArticlePage {
     public String submitArticle(String title){
         articleTitleBox.sendKeys(title);
         saveButton.click();
-        String errorMessageText = errorMessage.getText();
-        return errorMessageText;
+        return errorMessage.getText();
     }
 
     public AdminHomePage submitArticle(String title, String content){
@@ -44,8 +43,7 @@ public class AdminSubmitArticlePage {
         articleContent.sendKeys(Keys.ENTER);
         saveButton.click();
 
-        AdminHomePage adminHomePage = PageFactory.initElements(webDriver, AdminHomePage.class);
-        return adminHomePage;
+        return PageFactory.initElements(webDriver, AdminHomePage.class);
     }
 
 

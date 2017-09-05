@@ -16,12 +16,15 @@ public class JoomlaTest extends BaseClassTest {
         SearchResultsPage searchResultsPage = adminHomePage.goToSearchResultsPage("site");
         String totalResultsFound = searchResultsPage.getTotalResultsFound();
         System.out.println("Total Results Found: "+ totalResultsFound);
+        searchResultsPage.goToAdminHomePage();
         Assert.assertEquals("26", totalResultsFound);
+
     }
 
     @Test
     public void adminEditHomePageTest(){
         AdminEditHomePage adminEditHomePage = (AdminEditHomePage) adminHomePage.goToPage(Page.AdminEditHomePage);
+        Assert.assertEquals("448", adminEditHomePage.getTheNumberOfWords().toString());
         System.out.println("Number of words: " + adminEditHomePage.getTheNumberOfWords());
     }
 
@@ -42,8 +45,8 @@ public class JoomlaTest extends BaseClassTest {
 
     @Test
     public void AdminTemplatePageTest(){
-
         AdminTemplatePage adminTemplatePage = (AdminTemplatePage) adminHomePage.goToPage(Page.AdminTemplatePage);
-
+        Assert.assertEquals("Template Settings", adminTemplatePage.getPageLocation());
+        System.out.println("You are here: "+ adminTemplatePage.getPageLocation());
     }
 }

@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminProfilePage {
 
-    @FindBy(xpath = ".//main[@id='content']/ul/li[@class='active']/span[@itemprop='name']")
+    @FindBy(xpath = ".//li[@class='active']/span[@itemprop='name']")
     private WebElement pageLocationText;
 
     private WebDriver webDriver;
@@ -16,8 +16,7 @@ public class AdminProfilePage {
     }
     //Page location
     public String getPageLocation(){
-        String pageLocation = pageLocationText.getText();
-        return pageLocation;
+        return pageLocationText.getText();
     }
 
 }

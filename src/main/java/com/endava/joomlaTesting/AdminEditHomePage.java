@@ -17,8 +17,6 @@ public class AdminEditHomePage {
 
     //Get only the integers from a text
     public Integer getTheNumberOfWords(){
-        Integer numberOfWords = Integer.parseInt((wordsNumber.getText().replaceAll("[^0-9\\]]+","")));
-        return numberOfWords;
+        return Integer.parseInt((wordsNumber.getText().replaceAll("[^0-9\\]]+","")));
     }
-
 }
